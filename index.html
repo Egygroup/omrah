@@ -1,61 +1,51 @@
-<form id="omrahForm" class="space-y-4" action="https://formspree.io/f/xdaqkkpp" method="POST">
-    
-    <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1">الاسم</label>
-        <input type="text" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500" placeholder="اكتب اسمك ثلاثي" required>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سحب العمرة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-xl max-w-md w-full p-8">
+            <h1 class="text-3xl font-bold mb-6 text-green-700 text-center">سجل في سحب العمرة الآن</h1>
+            
+            <form action="https://formspree.io/f/xdaqkkpp" method="POST" class="space-y-4">
+                <div>
+                    <label class="block mb-1">الاسم</label>
+                    <input type="text" name="name" class="w-full px-4 py-2 border rounded-lg" required>
+                </div>
+                <div>
+                    <label class="block mb-1">السن</label>
+                    <input type="number" name="age" class="w-full px-4 py-2 border rounded-lg" required>
+                </div>
+                <div>
+                    <label class="block mb-1">المهنة</label>
+                    <input type="text" name="job" class="w-full px-4 py-2 border rounded-lg" required>
+                </div>
+                <div>
+                    <label class="block mb-1">الحالة الاجتماعية</label>
+                    <select name="marital_status" class="w-full px-4 py-2 border rounded-lg" required>
+                        <option value="">اختر</option>
+                        <option value="أعزب">أعزب</option>
+                        <option value="متزوج">متزوج</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block mb-1">محل الإقامة</label>
+                    <input type="text" name="address" class="w-full px-4 py-2 border rounded-lg" required>
+                </div>
+                <div>
+                    <label class="block mb-1">رقم الهاتف</label>
+                    <input type="tel" name="phone" class="w-full px-4 py-2 border rounded-lg" required>
+                </div>
+                
+                <button type="submit" class="w-full bg-green-600 text-white font-bold py-3 rounded-lg">
+                    سجل الآن
+                </button>
+            </form>
+        </div>
     </div>
-
-    <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1">السن</label>
-        <input type="number" name="age" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500" placeholder="سنك" required>
-    </div>
-
-    <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1">المهنة</label>
-        <input type="text" name="job" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500" placeholder="مهنتك" required>
-    </div>
-
-    <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1">الحالة الاجتماعية</label>
-        <select name="marital_status" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500" required>
-            <option value="">اختر الحالة الاجتماعية</option>
-            <option value="أعزب">أعزب</option>
-            <option value="متزوج">متزوج</option>
-            <option value="مطلق">مطلق</option>
-            <option value="أرمل">أرمل</option>
-        </select>
-    </div>
-
-    <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1">محل الإقامة</label>
-        <input type="text" name="address" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500" placeholder="أولاد صقر - الشرقية" required>
-    </div>
-
-    <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1">رقم الهاتف</label>
-        <input type="tel" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500" placeholder="01xxxxxxxxx" required>
-    </div>
-
-    <!-- حقول Formspree -->
-    <input type="hidden" name="_subject" value="تسجيل جديد - سحب العمرة">
-    <input type="hidden" name="_captcha" value="false">
-    
-    <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg transition">
-        سجل الآن
-    </button>
-</form>
-
-<script>
-document.getElementById('omrahForm').addEventListener('submit', function(e) {
-    // مفيش preventDefault عشان الفورم يبعت لـ Formspree
-    
-    setTimeout(function() {
-        document.getElementById('successMessage').classList.remove('hidden');
-        document.getElementById('omrahForm').reset();
-        
-        setTimeout(function() {
-            document.getElementById('successMessage').classList.add('hidden');
-        }, 3000);
-    }, 100);
-});
-</script>
+</body>
+</html>
