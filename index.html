@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سحب العمرة - أولاد صقر</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-purple-400 to-purple-600 min-h-screen">
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-md">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold text-purple-700 mb-2">سجل في سحب العمرة الآن</h1>
+                <p class="text-gray-600">أولاد صقر - الشرقية</p>
+            </div>
+            
+            <form id="omrahForm" class="space-y-4">
+                <div>
+                    <input type="text" id="name" placeholder="الاسم بالكامل" 
+                           class="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none" required>
+                </div>
+                <div>
+                    <input type="number" id="age" placeholder="السن" 
+                           class="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none" required>
+                </div>
+                <div>
+                    <input type="text" id="job" placeholder="المهنة" 
+                           class="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none" required>
+                </div>
+                <div>
+                    <input type="text" id="address" placeholder="محل الإقامة" 
+                           class="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none" required>
+                </div>
+                <div>
+                    <input type="tel" id="phone" placeholder="رقم الهاتف" 
+                           class="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none" required>
+                </div>
+                <button type="submit" 
+                        class="w-full bg-purple-600 text-white p-4 rounded-xl font-bold text-lg hover:bg-purple-700 transition duration-200 shadow-lg">
+                    تسجيل
+                </button>
+            </form>
+            
+            <div id="message" class="mt-6 text-center hidden"></div>
+        </div>
+    </div>
+
+<script>
+document.getElementById('omrahForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // هنا هنربط Google Sheet بعدين
+    const data = {
+        name: document.getElementById('name').value,
+        age: document.getElementById('age').value,
+        job: document.getElementById('job').value,
+        address: document.getElementById('address').value,
+        phone: document.getElementById('phone').value
+    };
+    
+    console.log('بيانات التسجيل:', data);
+    
+    document.getElementById('message').innerHTML = '<div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-xl"><p class="font-bold">تم التسجيل بنجاح! ✅</p><p class="text-sm">سيتم التواصل معك قريباً</p></div>';
+    document.getElementById('message').classList.remove('hidden');
+    document.getElementById('omrahForm').reset();
+    
+    setTimeout(() => {
+        document.getElementById('message').classList.add('hidden');
+    }, 5000);
+});
+</script>
+</body>
+</html>
